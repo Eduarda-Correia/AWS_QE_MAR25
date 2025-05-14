@@ -1,0 +1,1 @@
+Repositório destino as atividades do estágio em QA na Compass UOL
