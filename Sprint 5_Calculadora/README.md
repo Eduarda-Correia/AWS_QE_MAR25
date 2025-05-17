@@ -16,19 +16,7 @@ Criar uma classe Calculadora em Python que execute:
 Tudo isso acompanhado de testes unitários automatizados com Pytest.
 
 # Estrutura do Projeto
-
-SPRINT_5_CALCULADORA/
-├── .venv/                    
-├── .pytest_cache/            
-├── src/
-│   └── calculadora.py        
-├── tests/
-│   └── test_calculadora.py   
-├── .gitignore
-├── README.md
-└── requirements.txt
 ![image](https://github.com/user-attachments/assets/2fe86cdf-8e75-440a-9fd5-17a00af8ca83)
-
 
 # Ambiente Virtual
 
