@@ -1,8 +1,8 @@
-# -> Calculadora Python com TDD
+# Calculadora Python com TDD
 
 Este projeto foi desenvolvido como parte da formação em QA, com foco na aplicação de Test-Driven Development (TDD) em Python utilizando o framework Pytest.
 
-# -> Objetivo
+# Objetivo
 
 Criar uma classe Calculadora em Python que execute:
 
@@ -15,7 +15,7 @@ Criar uma classe Calculadora em Python que execute:
 
 Tudo isso acompanhado de testes unitários automatizados com Pytest.
 
-# -> Estrutura do Projeto
+# Estrutura do Projeto
 
 SPRINT_5_CALCULADORA/
 ├── .venv/                    
@@ -27,12 +27,14 @@ SPRINT_5_CALCULADORA/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+![image](https://github.com/user-attachments/assets/2fe86cdf-8e75-440a-9fd5-17a00af8ca83)
 
-# -> Ambiente Virtual
+
+# Ambiente Virtual
 
 Este projeto utiliza um ambiente virtual (.venv) para isolar as dependências, garantindo que as bibliotecas utilizadas não conflitem com outros projetos Python.
 
-# -> Como criar e ativar o ambiente:
+# Como criar e ativar o ambiente:
 
 Criar o ambiente virtual:
     python -m venv .venv
@@ -43,14 +45,14 @@ Ativar no Windows:
 Instalar as dependências:
     pip install -r requirements.txt
 
-# -> Executar os Testes
+# Executar os Testes
 
 Para rodar todos os testes do projeto:
     python -m pytest
 
 A saída exibirá pontos (.) para testes bem-sucedidos e letras F se algum teste falhar, junto com os detalhes do erro.
 
-# -> Tecnologias e Ferramentas
+# Tecnologias e Ferramentas
 
 - Python 3.13.3
 - Pytest
