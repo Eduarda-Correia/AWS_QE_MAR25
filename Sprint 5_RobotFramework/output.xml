@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-23T14:03:13.622421" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Tests" source="c:\03 - Projetos\AWS_QE_MAR25\Sprint 5_RobotFramework\tests\api_tests.robot">
+<test id="s1-t1" name="Cenário 1: obter todos os ids de reservas" line="9">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-23T14:03:16.223600" level="INFO">${base_url} = </msg>
+<var>${base_url}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-23T14:03:16.219380" elapsed="0.071955"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-23T14:03:16.297390" level="INFO">Creating Session using : alias=bookings, url=, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>bookings</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-23T14:03:16.296535" elapsed="0.001973"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-05-23T14:03:16.303151" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-05-23T14:03:16.390797" level="FAIL">MissingSchema: Invalid URL '/booking': No scheme supplied. Perhaps you meant https:///booking?</msg>
+<var>${response}</var>
+<arg>bookings</arg>
+<arg>/booking</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="FAIL" start="2025-05-23T14:03:16.302492" elapsed="0.142789">MissingSchema: Invalid URL '/booking': No scheme supplied. Perhaps you meant https:///booking?</status>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" start="2025-05-23T14:03:16.539858" elapsed="0.000343"/>
+</kw>
+<status status="FAIL" start="2025-05-23T14:03:16.213171" elapsed="0.333526">MissingSchema: Invalid URL '/booking': No scheme supplied. Perhaps you meant https:///booking?</status>
+</test>
+<status status="FAIL" start="2025-05-23T14:03:13.767317" elapsed="2.983543"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Api Tests" id="s1" pass="0" fail="1" skip="0">Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-23T14:03:15.832860" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint 5_RobotFramework\resources\keywords.robot' on line 13: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-05-23T14:03:16.303151" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
