@@ -4,40 +4,53 @@ Library           Collections
 Library           OperatingSystem
 Resource          ../resources/variables.robot
 Resource          ../resources/keywords.robot
+Suite Setup        Criar Reserva Inicial
 
 *** Test Cases ***
-Cenário 1: obter todos os ids de reservas
-    ${base_url}=    Set Variable    
+Cenário 1: obter todos os ids de reservas 
     Create Session    bookings    ${base_url}
-    ${response}=    Get Request    bookings    /booking
+    ${response}=    GET On Session    bookings    /booking
     Status Should Be    200    ${response}
 
 Cenário 2: criar nova reserva
     Create Session    bookings    ${base_url}
     ${booking_data}=    Create Dictionary
-    ...    firstname=jim
-    ...    lastname=brown
+    ...    firstname=Jim
+    ...    lastname=Brown
     ...    totalprice=111
     ...    depositpaid=true
     ...    bookingdates=${None}
     ...    additionalneeds=breakfast
     ${dates}=    Create Dictionary    checkin=2018-01-01    checkout=2019-01-01
     Set To Dictionary    ${booking_data}    bookingdates=${dates}
-    ${response}=    Post Request    bookings    /booking    json=${booking_data}
+    
+    ${response}=    POST On Session    bookings    /booking    json=${booking_data}
     Status Should Be    200    ${response}
-    ${booking_id}=    Get Value From Json    ${response.json()}    bookingid
+
+    ${bookingid}=    Get Value From Json    ${response.json()}    bookingid
+    Set Suite Variable    ${bookingid}     
 
 Cenário 3: atualizar reserva com token
     ${token}=    Create Auth Token
-    Create Session    update    ${base_url}    headers=Cookie=token=${token}
+    Log    Token gerado: ${token}
+
+    ${cookie}=    Set Variable    token=${token}
+    ${headers}=   Create Dictionary    Cookie=${cookie}
+    Create Session    update    ${base_url}    headers=${headers}
+
+    ${dates}=    Create Dictionary    checkin=2018-01-01    checkout=2019-01-01
+
     ${update_data}=    Create Dictionary
     ...    firstname=james
     ...    lastname=brown
     ...    totalprice=111
     ...    depositpaid=true
-    ...    bookingdates=${None}
+    ...    bookingdates=${dates}
     ...    additionalneeds=breakfast
-    ${dates}=    Create Dictionary    checkin=2018-01-01    checkout=2019-01-01
-    Set To Dictionary    ${update_data}    bookingdates=${dates}
-    ${response}=    Put Request    update    /booking/1    json=${update_data}
+
+    Log    Booking ID sendo usado: ${bookingid}
+    Log    Dados para atualização: ${update_data}
+
+    ${response}=    PUT On Session    update    /booking/${bookingid}    json=${update_data}
     Status Should Be    200    ${response}
+    Log    Resposta da atualização: ${response.text}
