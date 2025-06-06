@@ -31,15 +31,16 @@ Após a execução dos testes, os seguintes arquivos serão gerados:
 - CT03: Criar usuário com e-mail Gmail
 - CT04: Criar usuário com senha muito longa
 - CT05: Criar usuário com senha muito curta
-- CT06: Criar usuário sem senha
-- CT07: Atualizar usuário com ID inexistente
-- CT08: Atualizar usuário com e-mail já existente
-- CT09: Excluir usuário com carrinho
+- CT18: Usuários: Criar usuário sem senha
+- CT19: Usuários: Atualizar usuário com ID inexistente
+- CT20: Usuários: Tentar listar usuários sem autenticação
 
 ### Login
 - CT06: Login com credenciais válidas
 - CT07: Login com senha inválida
 - CT08: Login após token expirado
+- CT21: Login: Login com e-mail inexistente
+- CT22: Login: Login com campos obrigatórios ausentes
 
 ### Produtos
 - CT09: Criar produto autenticado
@@ -54,8 +55,6 @@ Após a execução dos testes, os seguintes arquivos serão gerados:
 - CT16: Criar carrinho com produtos válidos
 - CT17: Criar dois carrinhos com mesmo usuário
 - CT18: Tentar criar carrinho sem autenticação
-- CT19: Tentar criar carrinho com produto inexistente
-- CT20: Tentar criar carrinho com quantidade insuficiente
 
 ## Observações
 
