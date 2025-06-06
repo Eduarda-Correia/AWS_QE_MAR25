@@ -1,0 +1,1395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-05T20:54:44.379229" rpa="false" schemaversion="5">
+<suite id="s1" name="Carrinhos" source="c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\tests\carrinhos.robot">
+<kw name="Criar Sessão API" owner="keywords" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:45.076688" level="INFO">Creating Session using : alias=serverest, url=https://compassuol.serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>serverest</arg>
+<arg>${base_url}</arg>
+<arg>verify=${False}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-05T20:54:45.076246" elapsed="0.015332"/>
+</kw>
+<status status="PASS" start="2025-06-05T20:54:45.075387" elapsed="0.017891"/>
+</kw>
+<test id="s1-t1" name="CT16 - Carrinho: Criar carrinho com produtos válidos - Positivo" line="9">
+<kw name="Realizar Login e Limpar Carrinho" owner="keywords" type="SETUP">
+<kw name="Realizar Login e Armazenar Token" owner="keywords">
+<kw name="Obter Cabeçalhos Sem Autenticação" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.102883" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.099612" elapsed="0.003778"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:45.103693" elapsed="0.000241"/>
+</return>
+<msg time="2025-06-05T20:54:45.104229" level="INFO">${headers_login} = {'Content-Type': 'application/json'}</msg>
+<var>${headers_login}</var>
+<status status="PASS" start="2025-06-05T20:54:45.098866" elapsed="0.005512"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.104994" level="INFO">${body} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<var>${body}</var>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.104621" elapsed="0.000508"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.105596" level="INFO">Tentando login com email: fulano@qa.com</msg>
+<arg>Tentando login com email: ${email}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.105359" elapsed="0.000381"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.106315" level="INFO">Headers do login: {'Content-Type': 'application/json'}</msg>
+<arg>Headers do login: ${headers_login}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.105928" elapsed="0.000703"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.108064" level="INFO">Body do login: {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<arg>Body do login: ${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.107102" elapsed="0.001438"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:45.603060" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '47'} 
+ body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+ </msg>
+<msg time="2025-06-05T20:54:45.603720" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'd1f203ef4488875a3031fda165dd9fd6', 'date': 'Thu, 05 Jun 2025 23:54:45 GMT', 'server': 'Google Frontend', 'Content-Length': '265'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyODV9.KloQJWEshxOC_BQWy0t7IqAj-kvZQ5Dk0a-VIAkPqQE"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:45.604189" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:45.618614" level="INFO">${api_response} = &lt;Response [200]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${body}</arg>
+<arg>headers=${headers_login}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.109429" elapsed="0.511226"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.625218" level="INFO">Resposta do login: {'message': 'Login realizado com sucesso', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyODV9.KloQJWEshxOC_BQWy0t7IqAj-kvZQ5Dk0a-VIAkPqQE'}</msg>
+<arg>Resposta do login: ${api_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.622806" elapsed="0.002929"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.632336" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response.status_code}</arg>
+<arg>${status_ok}</arg>
+<arg>Login falhou</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.626260" elapsed="0.006717"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.635546" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyODV9.KloQJWEshxOC_BQWy0t7IqAj-kvZQ5Dk0a-VIAkPqQE</msg>
+<var>${token}</var>
+<arg>${api_response.json()['authorization']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.633554" elapsed="0.002366"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.638932" level="INFO">${auth_token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyODV9.KloQJWEshxOC_BQWy0t7IqAj-kvZQ5Dk0a-VIAkPqQE</msg>
+<arg>${auth_token}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.636469" elapsed="0.003579"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:45.640425" elapsed="0.000345"/>
+</return>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-06-05T20:54:45.097756" elapsed="0.543582"/>
+</kw>
+<kw name="Concluir Compra e Limpar Carrinho" owner="keywords">
+<kw name="Obter Headers de Autenticação" owner="keywords">
+<if>
+<branch type="IF" condition="'${auth_token}' == '${None}'">
+<kw name="Fail" owner="BuiltIn">
+<arg>Token de autenticação não encontrado. Execute 'Realizar Login e Armazenar Token' primeiro.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:45.644569" elapsed="0.000244"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:45.643840" elapsed="0.001611"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:45.643766" elapsed="0.001963"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.647194" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${auth_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.646094" elapsed="0.003340"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:45.650808" elapsed="0.003686"/>
+</return>
+<msg time="2025-06-05T20:54:45.656126" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<doc>Retorna o cabeçalho de autenticação usando o token armazenado na suíte.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.643136" elapsed="0.027019"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:45.884455" level="INFO">DELETE Request : url=https://compassuol.serverest.dev/carrinhos/concluir-compra 
+ path_url=/carrinhos/concluir-compra 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyODV9.KloQJWEshxOC_BQWy0t7IqAj-kvZQ5Dk0a-VIAkPqQE', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-05T20:54:45.885393" level="INFO">DELETE Response : url=https://compassuol.serverest.dev/carrinhos/concluir-compra 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '94b67648a8cb1ecf3031fda165dd94ed', 'date': 'Thu, 05 Jun 2025 23:54:45 GMT', 'server': 'Google Frontend', 'Content-Length': '51'} 
+ body={
+    "message": "Registro excluído com sucesso"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:45.885926" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:45.890419" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/carrinhos/concluir-compra</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.670907" elapsed="0.220254"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.896604" level="INFO">Tentativa de limpeza de carrinho concluída com status: 200</msg>
+<arg>Tentativa de limpeza de carrinho concluída com status: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.892343" elapsed="0.005096"/>
+</kw>
+<doc>Executa a rotina para deletar um carrinho existente. Ignora falhas caso o carrinho não exista.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.642030" elapsed="0.256530"/>
+</kw>
+<arg>${admin_email}</arg>
+<arg>${admin_senha}</arg>
+<doc>Faz o login e garante que não há carrinhos ativos para o usuário.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.096498" elapsed="0.802839"/>
+</kw>
+<kw name="Obter Headers de Autenticação" owner="keywords">
+<if>
+<branch type="IF" condition="'${auth_token}' == '${None}'">
+<kw name="Fail" owner="BuiltIn">
+<arg>Token de autenticação não encontrado. Execute 'Realizar Login e Armazenar Token' primeiro.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:45.926170" elapsed="0.000464"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:45.924946" elapsed="0.002984"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:45.924844" elapsed="0.005296"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.932056" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${auth_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.931128" elapsed="0.001219"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:45.932599" elapsed="0.000205"/>
+</return>
+<msg time="2025-06-05T20:54:45.933214" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<doc>Retorna o cabeçalho de autenticação usando o token armazenado na suíte.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.923857" elapsed="0.010208"/>
+</kw>
+<kw name="Gerar Dados de Novo Produto Válido" owner="keywords">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-06-05T20:54:45.941344" level="INFO">${random} = o4i2Kixe</msg>
+<var>${random}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.940414" elapsed="0.001328"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:45.949321" level="INFO">${payload} = {'nome': 'Produto o4i2Kixe', 'preco': '100', 'descricao': 'Descrição do produto o4i2Kixe', 'quantidade': '10'}</msg>
+<var>${payload}</var>
+<arg>nome=Produto ${random}</arg>
+<arg>preco=100</arg>
+<arg>descricao=Descrição do produto ${random}</arg>
+<arg>quantidade=10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.942445" elapsed="0.007278"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T20:54:45.950090" elapsed="0.000255"/>
+</return>
+<msg time="2025-06-05T20:54:45.951019" level="INFO">${payload_produto} = {'nome': 'Produto o4i2Kixe', 'preco': '100', 'descricao': 'Descrição do produto o4i2Kixe', 'quantidade': '10'}</msg>
+<var>${payload_produto}</var>
+<status status="PASS" start="2025-06-05T20:54:45.939520" elapsed="0.012417"/>
+</kw>
+<kw name="Cadastrar Novo Produto" owner="keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:46.169478" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyODV9.KloQJWEshxOC_BQWy0t7IqAj-kvZQ5Dk0a-VIAkPqQE', 'Content-Length': '120'} 
+ body=b'{"nome": "Produto o4i2Kixe", "preco": "100", "descricao": "Descri\\u00e7\\u00e3o do produto o4i2Kixe", "quantidade": "10"}' 
+ </msg>
+<msg time="2025-06-05T20:54:46.170343" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '2dbf0210600120bc3031fda165dd9b17', 'date': 'Thu, 05 Jun 2025 23:54:45 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "csoavcwfxGcfjk2D"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:46.170919" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:46.188326" level="INFO">${api_response} = &lt;Response [201]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers_arg}</arg>
+<arg>expected_status=${expected_status}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:45.960157" elapsed="0.228947"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:46.189805" elapsed="0.000440"/>
+</return>
+<msg time="2025-06-05T20:54:46.190827" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<var>${response_produto}</var>
+<arg>${payload_produto}</arg>
+<arg>headers_arg=${headers}</arg>
+<status status="PASS" start="2025-06-05T20:54:45.958743" elapsed="0.232380"/>
+</kw>
+<kw name="Validar Status Code" owner="keywords">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.194933" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response_obj.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.193596" elapsed="0.001696"/>
+</kw>
+<arg>${response_produto}</arg>
+<arg>${status_created}</arg>
+<status status="PASS" start="2025-06-05T20:54:46.192549" elapsed="0.002986"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.198001" level="INFO">${produto_id} = csoavcwfxGcfjk2D</msg>
+<var>${produto_id}</var>
+<arg>${response_produto.json()['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.196172" elapsed="0.002254"/>
+</kw>
+<kw name="Gerar Payload de Carrinho com Produto" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.202359" level="INFO">${produto_item} = {'idProduto': 'csoavcwfxGcfjk2D', 'quantidade': '1'}</msg>
+<var>${produto_item}</var>
+<arg>idProduto=${produto_id}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.201512" elapsed="0.001194"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.203777" level="INFO">@{produtos_list} = [ {'idProduto': 'csoavcwfxGcfjk2D', 'quantidade': '1'} ]</msg>
+<var>@{produtos_list}</var>
+<arg>${produto_item}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.203140" elapsed="0.000933"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.205106" level="INFO">${payload} = {'produtos': [{'idProduto': 'csoavcwfxGcfjk2D', 'quantidade': '1'}]}</msg>
+<var>${payload}</var>
+<arg>produtos=${produtos_list}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.204465" elapsed="0.000860"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T20:54:46.205569" elapsed="0.000197"/>
+</return>
+<msg time="2025-06-05T20:54:46.206126" level="INFO">${payload_carrinho} = {'produtos': [{'idProduto': 'csoavcwfxGcfjk2D', 'quantidade': '1'}]}</msg>
+<var>${payload_carrinho}</var>
+<arg>${produto_id}</arg>
+<arg>1</arg>
+<doc>Cria a estrutura de dados (payload) para adicionar um produto ao carrinho.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.200455" elapsed="0.005826"/>
+</kw>
+<kw name="Criar Carrinho" owner="keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:46.415335" level="INFO">POST Request : url=https://compassuol.serverest.dev/carrinhos 
+ path_url=/carrinhos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg1LCJleHAiOjE3NDkxNjgyODV9.KloQJWEshxOC_BQWy0t7IqAj-kvZQ5Dk0a-VIAkPqQE', 'Content-Length': '68'} 
+ body=b'{"produtos": [{"idProduto": "csoavcwfxGcfjk2D", "quantidade": "1"}]}' 
+ </msg>
+<msg time="2025-06-05T20:54:46.416051" level="INFO">POST Response : url=https://compassuol.serverest.dev/carrinhos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '110858b300117d2b3031fda165dd975c;o=1', 'date': 'Thu, 05 Jun 2025 23:54:45 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "lbGexAFo0PouuxRD"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:46.416772" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:46.422652" level="INFO">${api_response} = &lt;Response [201]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/carrinhos</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers_arg}</arg>
+<arg>expected_status=${expected_status}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.208218" elapsed="0.214990"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:46.423770" elapsed="0.000429"/>
+</return>
+<msg time="2025-06-05T20:54:46.425125" level="INFO">${response_obj} = &lt;Response [201]&gt;</msg>
+<var>${response_obj}</var>
+<arg>${payload_carrinho}</arg>
+<arg>headers_arg=${headers}</arg>
+<arg>expected_status=${status_created}</arg>
+<status status="PASS" start="2025-06-05T20:54:46.207031" elapsed="0.218656"/>
+</kw>
+<kw name="Validar Status Code" owner="keywords">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.434447" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response_obj.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.432185" elapsed="0.002703"/>
+</kw>
+<arg>${response_obj}</arg>
+<arg>${status_created}</arg>
+<status status="PASS" start="2025-06-05T20:54:46.430263" elapsed="0.004982"/>
+</kw>
+<kw name="Validar Mensagem de Resposta" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.441138" level="INFO">${json_body} = {'message': 'Cadastro realizado com sucesso', '_id': 'lbGexAFo0PouuxRD'}</msg>
+<var>${json_body}</var>
+<arg>$api_response_obj.json()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.440435" elapsed="0.001053"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.442652" elapsed="0.000737"/>
+</kw>
+<msg time="2025-06-05T20:54:46.443918" level="INFO">${message_found} = True</msg>
+<var>${message_found}</var>
+<arg>Dictionary Should Contain Key</arg>
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.441982" elapsed="0.002330"/>
+</kw>
+<if>
+<branch type="IF" condition="${message_found}">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T20:54:46.447374" level="INFO">${actual_message} = Cadastro realizado com sucesso</msg>
+<var>${actual_message}</var>
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.445945" elapsed="0.003113"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_message}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.452975" elapsed="0.001821"/>
+</kw>
+<status status="PASS" start="2025-06-05T20:54:46.444955" elapsed="0.010244"/>
+</branch>
+<branch type="ELSE">
+<kw name="Dictionary Should Contain Value" owner="Collections">
+<arg>${json_body}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:46.456155" elapsed="0.000305"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:46.455625" elapsed="0.001167"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:46.444755" elapsed="0.012321"/>
+</if>
+<arg>${response_obj}</arg>
+<arg>Cadastro realizado com sucesso</arg>
+<status status="PASS" start="2025-06-05T20:54:46.439481" elapsed="0.017823"/>
+</kw>
+<kw name="Verificar Presença de Campo no JSON" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.497872" level="INFO">${json_body} = {'message': 'Cadastro realizado com sucesso', '_id': 'lbGexAFo0PouuxRD'}</msg>
+<var>${json_body}</var>
+<arg>$api_response_obj.json()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.496797" elapsed="0.001435"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json_body}</arg>
+<arg>${field}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.498866" elapsed="0.001195"/>
+</kw>
+<arg>${response_obj}</arg>
+<arg>_id</arg>
+<status status="PASS" start="2025-06-05T20:54:46.490162" elapsed="0.010563"/>
+</kw>
+<status status="PASS" start="2025-06-05T20:54:45.093914" elapsed="1.419246"/>
+</test>
+<test id="s1-t2" name="CT17 - Carrinho: Criar dois carrinhos com mesmo usuário - Negativo" line="25">
+<kw name="Realizar Login e Limpar Carrinho" owner="keywords" type="SETUP">
+<kw name="Realizar Login e Armazenar Token" owner="keywords">
+<kw name="Obter Cabeçalhos Sem Autenticação" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.556040" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.555404" elapsed="0.000922"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:46.556589" elapsed="0.000186"/>
+</return>
+<msg time="2025-06-05T20:54:46.557255" level="INFO">${headers_login} = {'Content-Type': 'application/json'}</msg>
+<var>${headers_login}</var>
+<status status="PASS" start="2025-06-05T20:54:46.554708" elapsed="0.002779"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.558553" level="INFO">${body} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<var>${body}</var>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.557871" elapsed="0.001023"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.559957" level="INFO">Tentando login com email: fulano@qa.com</msg>
+<arg>Tentando login com email: ${email}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.559389" elapsed="0.000960"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.561693" level="INFO">Headers do login: {'Content-Type': 'application/json'}</msg>
+<arg>Headers do login: ${headers_login}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.560797" elapsed="0.001609"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.572402" level="INFO">Body do login: {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<arg>Body do login: ${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.563387" elapsed="0.009879"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:46.778453" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '47'} 
+ body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+ </msg>
+<msg time="2025-06-05T20:54:46.778763" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'a57a90351c2216fb3031fda165dd9545', 'date': 'Thu, 05 Jun 2025 23:54:46 GMT', 'server': 'Google Frontend', 'Content-Length': '265'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:46.778998" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:46.780672" level="INFO">${api_response} = &lt;Response [200]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${body}</arg>
+<arg>headers=${headers_login}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.573852" elapsed="0.207176"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.783965" level="INFO">Resposta do login: {'message': 'Login realizado com sucesso', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I'}</msg>
+<arg>Resposta do login: ${api_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.781888" elapsed="0.002569"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.786717" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response.status_code}</arg>
+<arg>${status_ok}</arg>
+<arg>Login falhou</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.784888" elapsed="0.002274"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.789455" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I</msg>
+<var>${token}</var>
+<arg>${api_response.json()['authorization']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.787695" elapsed="0.002141"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.791003" level="INFO">${auth_token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I</msg>
+<arg>${auth_token}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.790359" elapsed="0.000977"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:46.791694" elapsed="0.000218"/>
+</return>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-06-05T20:54:46.553592" elapsed="0.238741"/>
+</kw>
+<kw name="Concluir Compra e Limpar Carrinho" owner="keywords">
+<kw name="Obter Headers de Autenticação" owner="keywords">
+<if>
+<branch type="IF" condition="'${auth_token}' == '${None}'">
+<kw name="Fail" owner="BuiltIn">
+<arg>Token de autenticação não encontrado. Execute 'Realizar Login e Armazenar Token' primeiro.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:46.795322" elapsed="0.000243"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:46.794590" elapsed="0.001257"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:46.794526" elapsed="0.001583"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:46.797312" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${auth_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.796433" elapsed="0.001217"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:46.797984" elapsed="0.000250"/>
+</return>
+<msg time="2025-06-05T20:54:46.798908" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<doc>Retorna o cabeçalho de autenticação usando o token armazenado na suíte.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.793911" elapsed="0.005352"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:47.002587" level="INFO">DELETE Request : url=https://compassuol.serverest.dev/carrinhos/concluir-compra 
+ path_url=/carrinhos/concluir-compra 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-05T20:54:47.002949" level="INFO">DELETE Response : url=https://compassuol.serverest.dev/carrinhos/concluir-compra 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'b62df0622f4940773031fda165dd92f4', 'date': 'Thu, 05 Jun 2025 23:54:46 GMT', 'server': 'Google Frontend', 'Content-Length': '51'} 
+ body={
+    "message": "Registro excluído com sucesso"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:47.003140" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:47.004713" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/carrinhos/concluir-compra</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.799780" elapsed="0.205270"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.007268" level="INFO">Tentativa de limpeza de carrinho concluída com status: 200</msg>
+<arg>Tentativa de limpeza de carrinho concluída com status: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.005550" elapsed="0.002155"/>
+</kw>
+<doc>Executa a rotina para deletar um carrinho existente. Ignora falhas caso o carrinho não exista.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.792927" elapsed="0.215133"/>
+</kw>
+<arg>${admin_email}</arg>
+<arg>${admin_senha}</arg>
+<doc>Faz o login e garante que não há carrinhos ativos para o usuário.</doc>
+<status status="PASS" start="2025-06-05T20:54:46.552412" elapsed="0.455917"/>
+</kw>
+<kw name="Obter Headers de Autenticação" owner="keywords">
+<if>
+<branch type="IF" condition="'${auth_token}' == '${None}'">
+<kw name="Fail" owner="BuiltIn">
+<arg>Token de autenticação não encontrado. Execute 'Realizar Login e Armazenar Token' primeiro.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:47.129939" elapsed="0.000153"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:47.129384" elapsed="0.000901"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:47.129334" elapsed="0.001110"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.131313" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${auth_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.130644" elapsed="0.003929"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:47.135514" elapsed="0.000814"/>
+</return>
+<msg time="2025-06-05T20:54:47.137206" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<doc>Retorna o cabeçalho de autenticação usando o token armazenado na suíte.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.128672" elapsed="0.009442"/>
+</kw>
+<kw name="Gerar Dados de Novo Produto Válido" owner="keywords">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-06-05T20:54:47.147441" level="INFO">${random} = tr00AFLh</msg>
+<var>${random}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.146725" elapsed="0.001008"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.156253" level="INFO">${payload} = {'nome': 'Produto tr00AFLh', 'preco': '100', 'descricao': 'Descrição do produto tr00AFLh', 'quantidade': '10'}</msg>
+<var>${payload}</var>
+<arg>nome=Produto ${random}</arg>
+<arg>preco=100</arg>
+<arg>descricao=Descrição do produto ${random}</arg>
+<arg>quantidade=10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.155238" elapsed="0.001322"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T20:54:47.156860" elapsed="0.000241"/>
+</return>
+<msg time="2025-06-05T20:54:47.157599" level="INFO">${payload_produto} = {'nome': 'Produto tr00AFLh', 'preco': '100', 'descricao': 'Descrição do produto tr00AFLh', 'quantidade': '10'}</msg>
+<var>${payload_produto}</var>
+<status status="PASS" start="2025-06-05T20:54:47.145969" elapsed="0.011940"/>
+</kw>
+<kw name="Cadastrar Novo Produto" owner="keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:47.425967" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I', 'Content-Length': '120'} 
+ body=b'{"nome": "Produto tr00AFLh", "preco": "100", "descricao": "Descri\\u00e7\\u00e3o do produto tr00AFLh", "quantidade": "10"}' 
+ </msg>
+<msg time="2025-06-05T20:54:47.426367" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '9aeaa5798ac9115f3031fda165dd9659', 'date': 'Thu, 05 Jun 2025 23:54:46 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "tLn4FJCjDBwpkCOC"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:47.426636" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:47.438700" level="INFO">${api_response} = &lt;Response [201]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers_arg}</arg>
+<arg>expected_status=${expected_status}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.215820" elapsed="0.223252"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:47.439383" elapsed="0.000243"/>
+</return>
+<msg time="2025-06-05T20:54:47.440146" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<var>${response_produto}</var>
+<arg>${payload_produto}</arg>
+<arg>headers_arg=${headers}</arg>
+<status status="PASS" start="2025-06-05T20:54:47.213961" elapsed="0.226463"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.457211" level="INFO">${produto_id} = tLn4FJCjDBwpkCOC</msg>
+<var>${produto_id}</var>
+<arg>${response_produto.json()['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.455796" elapsed="0.001676"/>
+</kw>
+<kw name="Gerar Payload de Carrinho com Produto" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.464157" level="INFO">${produto_item} = {'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '1'}</msg>
+<var>${produto_item}</var>
+<arg>idProduto=${produto_id}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.463295" elapsed="0.001154"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.465689" level="INFO">@{produtos_list} = [ {'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '1'} ]</msg>
+<var>@{produtos_list}</var>
+<arg>${produto_item}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.464913" elapsed="0.001120"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.467180" level="INFO">${payload} = {'produtos': [{'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '1'}]}</msg>
+<var>${payload}</var>
+<arg>produtos=${produtos_list}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.466551" elapsed="0.000866"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T20:54:47.467642" elapsed="0.000172"/>
+</return>
+<msg time="2025-06-05T20:54:47.468149" level="INFO">${payload_carrinho1} = {'produtos': [{'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '1'}]}</msg>
+<var>${payload_carrinho1}</var>
+<arg>${produto_id}</arg>
+<arg>1</arg>
+<doc>Cria a estrutura de dados (payload) para adicionar um produto ao carrinho.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.462114" elapsed="0.006219"/>
+</kw>
+<kw name="Criar Carrinho" owner="keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:47.718837" level="INFO">POST Request : url=https://compassuol.serverest.dev/carrinhos 
+ path_url=/carrinhos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I', 'Content-Length': '68'} 
+ body=b'{"produtos": [{"idProduto": "tLn4FJCjDBwpkCOC", "quantidade": "1"}]}' 
+ </msg>
+<msg time="2025-06-05T20:54:47.719140" level="INFO">POST Response : url=https://compassuol.serverest.dev/carrinhos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'af2330d9d25eaade3031fda165dd94fe', 'date': 'Thu, 05 Jun 2025 23:54:47 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "GivzC7wW8PzA9dNX"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:47.719496" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:47.721351" level="INFO">${api_response} = &lt;Response [201]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/carrinhos</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers_arg}</arg>
+<arg>expected_status=${expected_status}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.500519" elapsed="0.221193"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:47.722093" elapsed="0.000226"/>
+</return>
+<msg time="2025-06-05T20:54:47.722792" level="INFO">${response_carrinho1} = &lt;Response [201]&gt;</msg>
+<var>${response_carrinho1}</var>
+<arg>${payload_carrinho1}</arg>
+<arg>headers_arg=${headers}</arg>
+<status status="PASS" start="2025-06-05T20:54:47.499134" elapsed="0.223939"/>
+</kw>
+<kw name="Validar Status Code" owner="keywords">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.727084" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response_obj.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.725589" elapsed="0.001922"/>
+</kw>
+<arg>${response_carrinho1}</arg>
+<arg>${status_created}</arg>
+<status status="PASS" start="2025-06-05T20:54:47.724662" elapsed="0.003178"/>
+</kw>
+<kw name="Gerar Payload de Carrinho com Produto" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.731800" level="INFO">${produto_item} = {'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '2'}</msg>
+<var>${produto_item}</var>
+<arg>idProduto=${produto_id}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.731106" elapsed="0.001135"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.733621" level="INFO">@{produtos_list} = [ {'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '2'} ]</msg>
+<var>@{produtos_list}</var>
+<arg>${produto_item}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.732831" elapsed="0.001160"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.735148" level="INFO">${payload} = {'produtos': [{'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '2'}]}</msg>
+<var>${payload}</var>
+<arg>produtos=${produtos_list}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.734505" elapsed="0.000824"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T20:54:47.735642" elapsed="0.000186"/>
+</return>
+<msg time="2025-06-05T20:54:47.736407" level="INFO">${payload_carrinho2} = {'produtos': [{'idProduto': 'tLn4FJCjDBwpkCOC', 'quantidade': '2'}]}</msg>
+<var>${payload_carrinho2}</var>
+<arg>${produto_id}</arg>
+<arg>2</arg>
+<doc>Cria a estrutura de dados (payload) para adicionar um produto ao carrinho.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.730097" elapsed="0.006619"/>
+</kw>
+<kw name="Criar Carrinho" owner="keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:47.942231" level="INFO">POST Request : url=https://compassuol.serverest.dev/carrinhos 
+ path_url=/carrinhos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg2LCJleHAiOjE3NDkxNjgyODZ9.0ch4gPXAi4FBkBgBb9S9E9um_QhLmqj55FghPySiS2I', 'Content-Length': '68'} 
+ body=b'{"produtos": [{"idProduto": "tLn4FJCjDBwpkCOC", "quantidade": "2"}]}' 
+ </msg>
+<msg time="2025-06-05T20:54:47.942487" level="INFO">POST Response : url=https://compassuol.serverest.dev/carrinhos 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '0ec169406d7812c43031fda165dd919a', 'date': 'Thu, 05 Jun 2025 23:54:47 GMT', 'server': 'Google Frontend', 'Content-Length': '61'} 
+ body={
+    "message": "Não é permitido ter mais de 1 carrinho"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:47.942649" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:47.944086" level="INFO">${api_response} = &lt;Response [400]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/carrinhos</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers_arg}</arg>
+<arg>expected_status=${expected_status}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.740456" elapsed="0.203960"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:47.944727" elapsed="0.000228"/>
+</return>
+<msg time="2025-06-05T20:54:47.945440" level="INFO">${response_carrinho2} = &lt;Response [400]&gt;</msg>
+<var>${response_carrinho2}</var>
+<arg>${payload_carrinho2}</arg>
+<arg>headers_arg=${headers}</arg>
+<arg>expected_status=${status_bad_request}</arg>
+<status status="PASS" start="2025-06-05T20:54:47.739435" elapsed="0.206279"/>
+</kw>
+<kw name="Validar Status Code" owner="keywords">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.950125" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response_obj.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.948195" elapsed="0.002315"/>
+</kw>
+<arg>${response_carrinho2}</arg>
+<arg>${status_bad_request}</arg>
+<status status="PASS" start="2025-06-05T20:54:47.947281" elapsed="0.003540"/>
+</kw>
+<kw name="Validar Mensagem de Resposta" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.956890" level="INFO">${json_body} = {'message': 'Não é permitido ter mais de 1 carrinho'}</msg>
+<var>${json_body}</var>
+<arg>$api_response_obj.json()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.956100" elapsed="0.001112"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.958190" elapsed="0.000468"/>
+</kw>
+<msg time="2025-06-05T20:54:47.958956" level="INFO">${message_found} = True</msg>
+<var>${message_found}</var>
+<arg>Dictionary Should Contain Key</arg>
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.957690" elapsed="0.001456"/>
+</kw>
+<if>
+<branch type="IF" condition="${message_found}">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T20:54:47.960678" level="INFO">${actual_message} = Não é permitido ter mais de 1 carrinho</msg>
+<var>${actual_message}</var>
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.960125" elapsed="0.000811"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_message}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.961347" elapsed="0.000649"/>
+</kw>
+<status status="PASS" start="2025-06-05T20:54:47.959648" elapsed="0.002629"/>
+</branch>
+<branch type="ELSE">
+<kw name="Dictionary Should Contain Value" owner="Collections">
+<arg>${json_body}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:47.963026" elapsed="0.000251"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:47.962547" elapsed="0.001020"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:47.959578" elapsed="0.004219"/>
+</if>
+<arg>${response_carrinho2}</arg>
+<arg>${msg_carrinho_duplicado}</arg>
+<status status="PASS" start="2025-06-05T20:54:47.955065" elapsed="0.008908"/>
+</kw>
+<status status="PASS" start="2025-06-05T20:54:46.540985" elapsed="1.424177"/>
+</test>
+<test id="s1-t3" name="CT18 - Carrinho: Tentar criar carrinho sem autenticação - Negativo" line="44">
+<kw name="Realizar Login e Armazenar Token" owner="keywords">
+<kw name="Obter Cabeçalhos Sem Autenticação" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.974269" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.973763" elapsed="0.000761"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:47.974871" elapsed="0.000279"/>
+</return>
+<msg time="2025-06-05T20:54:47.975722" level="INFO">${headers_login} = {'Content-Type': 'application/json'}</msg>
+<var>${headers_login}</var>
+<status status="PASS" start="2025-06-05T20:54:47.973171" elapsed="0.002866"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.977703" level="INFO">${body} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<var>${body}</var>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.976632" elapsed="0.001519"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.981200" level="INFO">Tentando login com email: fulano@qa.com</msg>
+<arg>Tentando login com email: ${email}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.978925" elapsed="0.005581"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.987078" level="INFO">Headers do login: {'Content-Type': 'application/json'}</msg>
+<arg>Headers do login: ${headers_login}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.986485" elapsed="0.000926"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:47.988706" level="INFO">Body do login: {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<arg>Body do login: ${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.987851" elapsed="0.001242"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:48.203336" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '47'} 
+ body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+ </msg>
+<msg time="2025-06-05T20:54:48.203761" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'f74f9f46e16dee883031fda165dd959e', 'date': 'Thu, 05 Jun 2025 23:54:47 GMT', 'server': 'Google Frontend', 'Content-Length': '265'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg3LCJleHAiOjE3NDkxNjgyODd9.Afk1FDtfRjvUGfbQKNMvjJRf5Tli6KPimW-ciXhvaYw"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:48.204108" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:48.208386" level="INFO">${api_response} = &lt;Response [200]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${body}</arg>
+<arg>headers=${headers_login}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:47.989533" elapsed="0.219407"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.213074" level="INFO">Resposta do login: {'message': 'Login realizado com sucesso', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg3LCJleHAiOjE3NDkxNjgyODd9.Afk1FDtfRjvUGfbQKNMvjJRf5Tli6KPimW-ciXhvaYw'}</msg>
+<arg>Resposta do login: ${api_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.209947" elapsed="0.003831"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.218619" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response.status_code}</arg>
+<arg>${status_ok}</arg>
+<arg>Login falhou</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.214641" elapsed="0.004891"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.222536" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg3LCJleHAiOjE3NDkxNjgyODd9.Afk1FDtfRjvUGfbQKNMvjJRf5Tli6KPimW-ciXhvaYw</msg>
+<var>${token}</var>
+<arg>${api_response.json()['authorization']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.220556" elapsed="0.002346"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.224108" level="INFO">${auth_token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg3LCJleHAiOjE3NDkxNjgyODd9.Afk1FDtfRjvUGfbQKNMvjJRf5Tli6KPimW-ciXhvaYw</msg>
+<arg>${auth_token}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.223434" elapsed="0.001029"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:48.225013" elapsed="0.000337"/>
+</return>
+<msg time="2025-06-05T20:54:48.226111" level="INFO">${login_admin_resp} = &lt;Response [200]&gt;</msg>
+<var>${login_admin_resp}</var>
+<arg>${admin_email}</arg>
+<arg>${admin_senha}</arg>
+<status status="PASS" start="2025-06-05T20:54:47.972299" elapsed="0.254138"/>
+</kw>
+<kw name="Obter Headers de Autenticação" owner="keywords">
+<if>
+<branch type="IF" condition="'${auth_token}' == '${None}'">
+<kw name="Fail" owner="BuiltIn">
+<arg>Token de autenticação não encontrado. Execute 'Realizar Login e Armazenar Token' primeiro.</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:48.230983" elapsed="0.000416"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:48.229707" elapsed="0.002216"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:48.229581" elapsed="0.002786"/>
+</if>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.233998" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg3LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${auth_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.233213" elapsed="0.001084"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:48.234732" elapsed="0.000418"/>
+</return>
+<msg time="2025-06-05T20:54:48.236119" level="INFO">${headers_admin} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg3LCJleHAiOjE3NDkxNjgyO...</msg>
+<var>${headers_admin}</var>
+<doc>Retorna o cabeçalho de autenticação usando o token armazenado na suíte.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.228452" elapsed="0.008633"/>
+</kw>
+<kw name="Gerar Dados de Novo Produto Válido" owner="keywords">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-06-05T20:54:48.244398" level="INFO">${random} = IaB9jHMH</msg>
+<var>${random}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.243794" elapsed="0.000929"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.246235" level="INFO">${payload} = {'nome': 'Produto IaB9jHMH', 'preco': '100', 'descricao': 'Descrição do produto IaB9jHMH', 'quantidade': '10'}</msg>
+<var>${payload}</var>
+<arg>nome=Produto ${random}</arg>
+<arg>preco=100</arg>
+<arg>descricao=Descrição do produto ${random}</arg>
+<arg>quantidade=10</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.245253" elapsed="0.001345"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T20:54:48.246971" elapsed="0.000302"/>
+</return>
+<msg time="2025-06-05T20:54:48.247828" level="INFO">${payload_prod} = {'nome': 'Produto IaB9jHMH', 'preco': '100', 'descricao': 'Descrição do produto IaB9jHMH', 'quantidade': '10'}</msg>
+<var>${payload_prod}</var>
+<status status="PASS" start="2025-06-05T20:54:48.243051" elapsed="0.005081"/>
+</kw>
+<kw name="Cadastrar Novo Produto" owner="keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:48.489612" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ5MTY3Njg3LCJleHAiOjE3NDkxNjgyODd9.Afk1FDtfRjvUGfbQKNMvjJRf5Tli6KPimW-ciXhvaYw', 'Content-Length': '120'} 
+ body=b'{"nome": "Produto IaB9jHMH", "preco": "100", "descricao": "Descri\\u00e7\\u00e3o do produto IaB9jHMH", "quantidade": "10"}' 
+ </msg>
+<msg time="2025-06-05T20:54:48.489865" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'dd22bdb7f5b175d03031fda165dd9dd1', 'date': 'Thu, 05 Jun 2025 23:54:47 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "TbDT8CSyJctWrdaE"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:48.490022" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:48.491783" level="INFO">${api_response} = &lt;Response [201]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers_arg}</arg>
+<arg>expected_status=${expected_status}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.272139" elapsed="0.220069"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:48.492551" elapsed="0.000268"/>
+</return>
+<msg time="2025-06-05T20:54:48.493333" level="INFO">${resp_prod} = &lt;Response [201]&gt;</msg>
+<var>${resp_prod}</var>
+<arg>${payload_prod}</arg>
+<arg>headers_arg=${headers_admin}</arg>
+<status status="PASS" start="2025-06-05T20:54:48.264663" elapsed="0.228975"/>
+</kw>
+<kw name="Validar Status Code" owner="keywords">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.497640" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response_obj.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.496285" elapsed="0.001711"/>
+</kw>
+<arg>${resp_prod}</arg>
+<arg>${status_created}</arg>
+<status status="PASS" start="2025-06-05T20:54:48.495431" elapsed="0.002803"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.503527" level="INFO">${produto_id_valido} = TbDT8CSyJctWrdaE</msg>
+<var>${produto_id_valido}</var>
+<arg>${resp_prod.json()['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.501830" elapsed="0.001930"/>
+</kw>
+<kw name="Gerar Payload de Carrinho com Produto" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.505928" level="INFO">${produto_item} = {'idProduto': 'TbDT8CSyJctWrdaE', 'quantidade': '1'}</msg>
+<var>${produto_item}</var>
+<arg>idProduto=${produto_id}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.505269" elapsed="0.000971"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.507518" level="INFO">@{produtos_list} = [ {'idProduto': 'TbDT8CSyJctWrdaE', 'quantidade': '1'} ]</msg>
+<var>@{produtos_list}</var>
+<arg>${produto_item}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.506781" elapsed="0.001380"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.510882" level="INFO">${payload} = {'produtos': [{'idProduto': 'TbDT8CSyJctWrdaE', 'quantidade': '1'}]}</msg>
+<var>${payload}</var>
+<arg>produtos=${produtos_list}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.509848" elapsed="0.001399"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T20:54:48.511592" elapsed="0.000242"/>
+</return>
+<msg time="2025-06-05T20:54:48.512336" level="INFO">${payload_carrinho} = {'produtos': [{'idProduto': 'TbDT8CSyJctWrdaE', 'quantidade': '1'}]}</msg>
+<var>${payload_carrinho}</var>
+<arg>${produto_id_valido}</arg>
+<arg>1</arg>
+<doc>Cria a estrutura de dados (payload) para adicionar um produto ao carrinho.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.504494" elapsed="0.008102"/>
+</kw>
+<kw name="Obter Cabeçalhos Sem Autenticação" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.519732" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.518911" elapsed="0.001122"/>
+</kw>
+<return>
+<value>${headers}</value>
+<status status="PASS" start="2025-06-05T20:54:48.520388" elapsed="0.000584"/>
+</return>
+<msg time="2025-06-05T20:54:48.521523" level="INFO">${headers_no_auth} = {'Content-Type': 'application/json'}</msg>
+<var>${headers_no_auth}</var>
+<status status="PASS" start="2025-06-05T20:54:48.517502" elapsed="0.004284"/>
+</kw>
+<kw name="Criar Carrinho" owner="keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T20:54:48.733699" level="INFO">POST Request : url=https://compassuol.serverest.dev/carrinhos 
+ path_url=/carrinhos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '68'} 
+ body=b'{"produtos": [{"idProduto": "TbDT8CSyJctWrdaE", "quantidade": "1"}]}' 
+ </msg>
+<msg time="2025-06-05T20:54:48.734875" level="INFO">POST Response : url=https://compassuol.serverest.dev/carrinhos 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'd0a79f3ef66607063031fda165dd9e7f', 'date': 'Thu, 05 Jun 2025 23:54:48 GMT', 'server': 'Google Frontend', 'Content-Length': '103'} 
+ body={
+    "message": "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+} 
+ </msg>
+<msg time="2025-06-05T20:54:48.735913" level="INFO">C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T20:54:48.744101" level="INFO">${api_response} = &lt;Response [401]&gt;</msg>
+<var>${api_response}</var>
+<arg>serverest</arg>
+<arg>/carrinhos</arg>
+<arg>json=${payload}</arg>
+<arg>headers=${headers_arg}</arg>
+<arg>expected_status=${expected_status}</arg>
+<arg>verify=${False}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.523751" elapsed="0.221556"/>
+</kw>
+<return>
+<value>${api_response}</value>
+<status status="PASS" start="2025-06-05T20:54:48.746523" elapsed="0.000828"/>
+</return>
+<msg time="2025-06-05T20:54:48.749038" level="INFO">${response_obj} = &lt;Response [401]&gt;</msg>
+<var>${response_obj}</var>
+<arg>${payload_carrinho}</arg>
+<arg>headers_arg=${headers_no_auth}</arg>
+<arg>expected_status=${status_unauthorized}</arg>
+<status status="PASS" start="2025-06-05T20:54:48.522728" elapsed="0.227281"/>
+</kw>
+<kw name="Validar Status Code" owner="keywords">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.771683" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${api_response_obj.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.765160" elapsed="0.007953"/>
+</kw>
+<arg>${response_obj}</arg>
+<arg>${status_unauthorized}</arg>
+<status status="PASS" start="2025-06-05T20:54:48.762054" elapsed="0.011575"/>
+</kw>
+<kw name="Validar Mensagem de Resposta" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T20:54:48.780639" level="INFO">${json_body} = {'message': 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais'}</msg>
+<var>${json_body}</var>
+<arg>$api_response_obj.json()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.779436" elapsed="0.002421"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.784571" elapsed="0.002157"/>
+</kw>
+<msg time="2025-06-05T20:54:48.787211" level="INFO">${message_found} = True</msg>
+<var>${message_found}</var>
+<arg>Dictionary Should Contain Key</arg>
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.783662" elapsed="0.003895"/>
+</kw>
+<if>
+<branch type="IF" condition="${message_found}">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T20:54:48.790528" level="INFO">${actual_message} = Token de acesso ausente, inválido, expirado ou usuário do token não existe mais</msg>
+<var>${actual_message}</var>
+<arg>${json_body}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.788824" elapsed="0.003129"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_message}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T20:54:48.793716" elapsed="0.001077"/>
+</kw>
+<status status="PASS" start="2025-06-05T20:54:48.788014" elapsed="0.007168"/>
+</branch>
+<branch type="ELSE">
+<kw name="Dictionary Should Contain Value" owner="Collections">
+<arg>${json_body}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-06-05T20:54:48.796078" elapsed="0.000301"/>
+</kw>
+<status status="NOT RUN" start="2025-06-05T20:54:48.795511" elapsed="0.001269"/>
+</branch>
+<status status="PASS" start="2025-06-05T20:54:48.787935" elapsed="0.009196"/>
+</if>
+<arg>${response_obj}</arg>
+<arg>${msg_token_invalido}</arg>
+<status status="PASS" start="2025-06-05T20:54:48.777789" elapsed="0.019666"/>
+</kw>
+<status status="PASS" start="2025-06-05T20:54:47.970975" elapsed="0.834743"/>
+</test>
+<doc>Testes de API para o endpoint /carrinhos</doc>
+<status status="PASS" start="2025-06-05T20:54:44.389757" elapsed="4.418348"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Carrinhos" id="s1" pass="3" fail="0" skip="0">Carrinhos</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-06-05T20:54:44.442180" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 26: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.444308" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 34: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.446272" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 38: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.447101" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 45: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.447830" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 52: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.450574" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 59: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.452802" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 66: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.456127" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 71: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.457595" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 76: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.458645" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 86: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.459646" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 95: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.460466" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 105: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.461272" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 115: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.461976" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 124: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.462771" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 133: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.466046" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 194: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-06-05T20:54:44.471485" level="WARN">Error in file 'c:\03 - Projetos\AWS_QE_MAR25\Sprint6_Challenge03\resources\keywords.robot' on line 203: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
