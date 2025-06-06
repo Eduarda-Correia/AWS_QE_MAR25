@@ -1,64 +1,19 @@
 # Automação de Testes da API Serverest
 
-Este projeto contém testes automatizados para a API Serverest (https://serverest.dev/) utilizando Robot Framework.
+Este projeto contém testes automatizados para a API Serverest (https://compassuol.serverest.dev/) utilizando Robot Framework.
 
 ## Estrutura do Projeto
 
 ```
 |-- tests/
-|   |-- usuarios.robot    # Testes do endpoint /usuarios
-|   |-- login.robot       # Testes do endpoint /login
-|   |-- produtos.robot    # Testes do endpoint /produtos
-|   |-- carrinhos.robot   # Testes do endpoint /carrinhos
+|   |-- usuarios.robot    
+|   |-- login.robot       
+|   |-- produtos.robot    
+|   |-- carrinhos.robot   
 |-- resources/
-|   |-- keywords.robot    # Keywords customizadas
-|   |-- variables.robot   # Variáveis globais
-|-- requirements.txt      # Dependências do projeto
-```
-
-## Pré-requisitos
-
-- Python 3.7 ou superior
-- pip (gerenciador de pacotes Python)
-
-## Instalação
-
-1. Clone o repositório:
-```bash
-git clone [URL_DO_REPOSITÓRIO]
-cd [NOME_DO_DIRETÓRIO]
-```
-
-2. Crie e ative um ambiente virtual:
-```bash
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
-```
-
-3. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
-
-## Executando os Testes
-
-Para executar todos os testes:
-```bash
-robot tests/
-```
-
-Para executar uma suíte específica:
-```bash
-robot tests/usuarios.robot
-robot tests/login.robot
-robot tests/produtos.robot
-robot tests/carrinhos.robot
-```
-
-Para executar um caso de teste específico:
-```bash
-robot -t "CT01 - Usuários: Criar usuário com dados válidos" tests/usuarios.robot
+|   |-- keywords.robot    
+|   |-- variables.robot   
+|-- requirements.txt      
 ```
 
 ## Relatórios
@@ -106,5 +61,4 @@ Após a execução dos testes, os seguintes arquivos serão gerados:
 
 - Os testes foram desenvolvidos considerando a documentação oficial da API Serverest
 - Alguns casos de teste (CT03, CT04, CT05, CT08) foram marcados como "ISSUE" pois identificam comportamentos da API que não estão de acordo com as regras de negócio esperadas
-- Os testes utilizam dados dinâmicos para evitar conflitos durante a execução
 - As credenciais de administrador são utilizadas para testes que requerem autenticação 
