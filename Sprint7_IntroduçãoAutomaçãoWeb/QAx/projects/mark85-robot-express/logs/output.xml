@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-16T17:40:42.741685" rpa="false" schemaversion="5">
+<suite id="s1" name="Create" source="C:\03 - Projetos\AWS_QE_MAR25\Sprint7_IntroduçãoAutomaçãoWeb\QAx\projects\mark85-robot-express\tests\tasks\create.robot">
+<test id="s1-t1" name="CT01 - Deve poder Cadastrar uma nova tarefas" line="10">
+<kw name="Start Session" owner="base" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-06-16T17:40:56.581839" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\03 - Projetos\\AWS_QE_MAR25\\Sprint7_Introdu\u00e7\u00e3oAutoma\u00e7\u00e3oWeb\\QAx\\projects\\mark85-robot-express\\logs\\browser\\traces\\temp\\ce00eb18-e422-4ac0-8c87-a5657f339ec8"}</msg>
+<msg time="2025-06-16T17:40:56.691315" level="INFO">Starting Browser process C:\Users\Eduarda Correia\AppData\Local\Programs\Python\Python313\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:56507</msg>
+<msg time="2025-06-16T17:41:01.228754" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\03 - Projetos\\AWS_QE_MAR25\\Sprint7_IntroduçãoAutomaçãoWeb\\QAx\\projects\\mark85-robot-express\\logs\\browser\\traces\\temp\\ce00eb18-e422-4ac0-8c87-a5657f339ec8"}</msg>
+<arg>browser=chromium</arg>
+<arg>headless=${False}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-06-16T17:40:56.580676" elapsed="4.648521"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-06-16T17:41:04.197593" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2025-06-16T17:41:04.197831" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-06-16T17:41:01.229701" elapsed="2.969001"/>
+</kw>
+<status status="PASS" start="2025-06-16T17:40:56.578207" elapsed="7.620894"/>
+</kw>
+<kw name="Get fixture" owner="base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-16T17:41:04.210743" level="INFO">${data} = {'create': {'user': {'name': 'Steve Jobs', 'email': 'jobs@apple.com', 'password': '123456'}, 'tasks': {'name': 'Criar uma nova versão do Ipood', 'tasks': ['ios', 'music', 'ipod']}}}</msg>
+<var>${data}</var>
+<arg>${EXECDIR}/resources/fixtures/${file_naame}.json</arg>
+<arg>encoding= utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-16T17:41:04.207698" elapsed="0.003308"/>
+</kw>
+<return>
+<value>${data}[${cenario}]</value>
+<status status="PASS" start="2025-06-16T17:41:04.211496" elapsed="0.000756"/>
+</return>
+<msg time="2025-06-16T17:41:04.213234" level="INFO">${data} = {'user': {'name': 'Steve Jobs', 'email': 'jobs@apple.com', 'password': '123456'}, 'tasks': {'name': 'Criar uma nova versão do Ipood', 'tasks': ['ios', 'music', 'ipod']}}</msg>
+<var>${data}</var>
+<arg>tasks</arg>
+<arg>create</arg>
+<status status="PASS" start="2025-06-16T17:41:04.204577" elapsed="0.008776"/>
+</kw>
+<kw name="Clean user from database" owner="database">
+<arg>${data}[user][email]</arg>
+<status status="PASS" start="2025-06-16T17:41:04.215779" elapsed="0.397821"/>
+</kw>
+<kw name="Insert user from database" owner="database">
+<msg time="2025-06-16T17:41:04.685472" level="INFO">{'name': 'Steve Jobs', 'email': 'jobs@apple.com', 'password': '123456'}</msg>
+<arg>${data}[user]</arg>
+<status status="PASS" start="2025-06-16T17:41:04.614208" elapsed="0.071435"/>
+</kw>
+<kw name="Submit login form" owner="LoginPage">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-06-16T17:41:04.690061" level="INFO">Fills the text 'jobs@apple.com' in the given field.</msg>
+<arg>css=input[placeholder$=mail]</arg>
+<arg>${user}[email]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-06-16T17:41:04.687606" elapsed="0.180824"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-06-16T17:41:04.871082" level="INFO">Fills the text '123456' in the given field.</msg>
+<arg>css=input[placeholder=Senha]</arg>
+<arg>${user}[password]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-06-16T17:41:04.869011" elapsed="0.071657"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-06-16T17:41:04.942084" level="INFO">Clicks the element 'css=button &gt;&gt; text=Entrar'.</msg>
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-06-16T17:41:04.941106" elapsed="0.190814"/>
+</kw>
+<arg>${data}[user]</arg>
+<status status="PASS" start="2025-06-16T17:41:04.686446" elapsed="0.445705"/>
+</kw>
+<kw name="User should be logged in" owner="Header">
+<kw name="Split String" owner="String">
+<msg time="2025-06-16T17:41:05.152254" level="INFO">@{splited_name} = [ Steve | Jobs ]</msg>
+<var>@{splited_name}</var>
+<arg>${name}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.149986" elapsed="0.002377"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-16T17:41:05.153934" level="INFO">${element} = css=header .right small</msg>
+<var>${element}</var>
+<arg>css=header .right small</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.152759" elapsed="0.001276"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-06-16T17:41:05.294030" level="INFO">Waited for Element with selector css=header .right small at state visible</msg>
+<arg>${element}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.154571" elapsed="0.139962"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2025-06-16T17:41:05.410999" level="INFO">Text: 'Olá, Steve'</msg>
+<arg>${element}</arg>
+<arg>equal</arg>
+<arg>Olá, ${splited_name}[0]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.295061" elapsed="0.116420"/>
+</kw>
+<arg>${data}[user][name]</arg>
+<status status="PASS" start="2025-06-16T17:41:05.147994" elapsed="0.264221"/>
+</kw>
+<kw name="Go to task form" owner="Header">
+<kw name="Click" owner="Browser">
+<msg time="2025-06-16T17:41:05.420905" level="INFO">Clicks the element 'css=.button-add'.</msg>
+<arg>css=.button-add</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.418778" elapsed="0.143337"/>
+</kw>
+<status status="PASS" start="2025-06-16T17:41:05.416324" elapsed="0.146639"/>
+</kw>
+<kw name="Submit task form" owner="TaskCreatePage">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-06-16T17:41:05.618836" level="INFO">Fills the text 'Criar uma nova versão do Ipood' in the given field.</msg>
+<arg>css=input[placeholder$=tarefa]</arg>
+<arg>${task}[name]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.617128" elapsed="0.043043"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-06-16T17:41:05.662318" level="INFO">Clicks the element 'css=button &gt;&gt; text=Cadastrar'.</msg>
+<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.661013" elapsed="0.080230"/>
+</kw>
+<arg>${data}[tasks]</arg>
+<status status="PASS" start="2025-06-16T17:41:05.613398" elapsed="0.128279"/>
+</kw>
+<kw name="Task should be registered" owner="TasksPage">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-06-16T17:41:06.018698" level="INFO">Waited for Element with selector css=.task-todo &gt;&gt; text=Criar uma nova versão do Ipood at state visible</msg>
+<arg>css=.task-todo &gt;&gt; text=${task_name}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-06-16T17:41:05.749922" elapsed="0.269233"/>
+</kw>
+<arg>${data}[tasks][name]</arg>
+<status status="PASS" start="2025-06-16T17:41:05.747942" elapsed="0.271529"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
+<msg time="2025-06-16T17:41:06.393194" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2025-06-16T17:41:06.030718" elapsed="0.362919"/>
+</kw>
+<msg time="2025-06-16T17:41:06.438654" level="INFO">Switching context to context=f3d361d7-3b7a-49c1-a722-45350c812c16 in CURRENT</msg>
+<msg time="2025-06-16T17:41:06.464165" level="INFO">Successfully changed active context: context=f3d361d7-3b7a-49c1-a722-45350c812c16</msg>
+<msg time="2025-06-16T17:41:06.715940" level="INFO">Successfully closed Context</msg>
+<status status="PASS" start="2025-06-16T17:40:56.575938" elapsed="9.818178"/>
+</test>
+<doc>Cenários de cadastro de tarefas</doc>
+<status status="PASS" start="2025-06-16T17:40:42.744159" elapsed="23.992127"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Create" id="s1" pass="1" fail="0" skip="0">Create</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-06-16T17:40:42.821817" level="WARN">Error in file 'C:\03 - Projetos\AWS_QE_MAR25\Sprint7_IntroduçãoAutomaçãoWeb\QAx\projects\mark85-robot-express\resources\base.resource' on line 43: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>

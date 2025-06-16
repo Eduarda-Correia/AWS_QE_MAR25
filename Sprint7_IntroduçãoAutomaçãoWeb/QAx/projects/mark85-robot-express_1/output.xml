@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-10T16:55:24.551183" rpa="false" schemaversion="5">
+<suite id="s1" name="Hello" source="C:\03 - Projetos\AWS_QE_MAR25\Sprint7_IntroduçãoAutomaçãoWeb\QAx\projects\mark85-robot-express\hello.robot">
+<test id="s1-t1" name="Deve mostrar mensagem de boas vindas" line="7">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-10T16:55:24.594822" level="INFO">Hello Robot Framework</msg>
+<arg>Hello Robot Framework</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-10T16:55:24.594500" elapsed="0.000466"/>
+</kw>
+<kw name="My Log" owner="mylib">
+<msg time="2025-06-10T16:55:24.595821" level="INFO">Hello Robot Framework from my lib</msg>
+<arg>Hello Robot Framework from my lib</arg>
+<status status="PASS" start="2025-06-10T16:55:24.595515" elapsed="0.000367"/>
+</kw>
+<status status="PASS" start="2025-06-10T16:55:24.593510" elapsed="0.002631"/>
+</test>
+<doc>Um exemplo em Robot Framework</doc>
+<status status="PASS" start="2025-06-10T16:55:24.553101" elapsed="0.043675"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Hello" id="s1" pass="1" fail="0" skip="0">Hello</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
