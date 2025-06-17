@@ -1,62 +1,66 @@
-{"level":30,"time":"2025-06-16T20:40:59.239Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Listening on 127.0.0.1:56507"}
-(node:6200) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+{"level":30,"time":"2025-06-17T00:19:54.854Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Listening on 127.0.0.1:53077"}
+(node:4080) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-{"level":30,"time":"2025-06-16T20:40:59.828Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method newBrowser"}
-{"level":30,"time":"2025-06-16T20:41:01.223Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Adding browser to stack: chromium, version: 136.0.7103.25"}
-{"level":30,"time":"2025-06-16T20:41:01.224Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method newBrowser"}
-{"level":30,"time":"2025-06-16T20:41:01.224Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Adding 0 contexts to browser"}
-{"level":30,"time":"2025-06-16T20:41:01.235Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method newPage"}
-{"level":30,"time":"2025-06-16T20:41:01.235Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2025-06-16T20:41:01.368Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Changed active context"}
-{"level":30,"time":"2025-06-16T20:41:02.690Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Video path: undefined"}
-{"level":30,"time":"2025-06-16T20:41:02.691Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Changed active page"}
-{"level":30,"time":"2025-06-16T20:41:04.134Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method newPage"}
-{"level":30,"time":"2025-06-16T20:41:04.698Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-06-16T20:41:04.700Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=input[placeholder$=mail] in page."}
-{"level":30,"time":"2025-06-16T20:41:04.865Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method fillText"}
-{"level":30,"time":"2025-06-16T20:41:04.876Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-06-16T20:41:04.878Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=input[placeholder=Senha] in page."}
-{"level":30,"time":"2025-06-16T20:41:04.937Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method fillText"}
-{"level":30,"time":"2025-06-16T20:41:04.957Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=button >> text=Entrar in page."}
-{"level":30,"time":"2025-06-16T20:41:04.946Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method click"}
-{"level":30,"time":"2025-06-16T20:41:05.128Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method click"}
-{"level":30,"time":"2025-06-16T20:41:05.164Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-06-16T20:41:05.165Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=header .right small in page."}
-{"level":30,"time":"2025-06-16T20:41:05.287Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-06-16T20:41:05.308Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=header .right small in page."}
-{"level":30,"time":"2025-06-16T20:41:05.307Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getText"}
-{"level":30,"time":"2025-06-16T20:41:05.403Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Retrieved text for element css=header .right small containing Olá, Steve"}
-{"level":30,"time":"2025-06-16T20:41:05.404Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getText"}
-{"level":30,"time":"2025-06-16T20:41:05.427Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method click"}
-{"level":30,"time":"2025-06-16T20:41:05.428Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=.button-add in page."}
-{"level":30,"time":"2025-06-16T20:41:05.549Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method click"}
-{"level":30,"time":"2025-06-16T20:41:05.627Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method fillText"}
-{"level":30,"time":"2025-06-16T20:41:05.627Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=input[placeholder$=tarefa] in page."}
-{"level":30,"time":"2025-06-16T20:41:05.656Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method fillText"}
-{"level":30,"time":"2025-06-16T20:41:05.667Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method click"}
-{"level":30,"time":"2025-06-16T20:41:05.667Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=button >> text=Cadastrar in page."}
-{"level":30,"time":"2025-06-16T20:41:05.734Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method click"}
-{"level":30,"time":"2025-06-16T20:41:05.760Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2025-06-16T20:41:05.760Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=.task-todo >> text=Criar uma nova versão do Ipood in page."}
-{"level":30,"time":"2025-06-16T20:41:06.016Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2025-06-16T20:41:06.044Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method takeScreenshot"}
-{"level":30,"time":"2025-06-16T20:41:06.046Z","pid":6200,"hostname":"DESKTOP-995QNOJ","Take screenshot with options: ":{"path":"C:\\03 - Projetos\\AWS_QE_MAR25\\Sprint7_IntroduçãoAutomaçãoWeb\\QAx\\projects\\mark85-robot-express\\logs\\browser\\screenshot\\robotframework-browser-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
-{"level":30,"time":"2025-06-16T20:41:06.388Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method takeScreenshot"}
-{"level":30,"time":"2025-06-16T20:41:06.401Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.411Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.417Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.420Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.430Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.434Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.443Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.447Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.453Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Changed active context"}
-{"level":30,"time":"2025-06-16T20:41:06.454Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Changing current active page: page=50350092-f452-4a9a-8d4f-8426d275807f"}
-{"level":30,"time":"2025-06-16T20:41:06.454Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Changed active page"}
-{"level":30,"time":"2025-06-16T20:41:06.464Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method closeContext"}
-{"level":30,"time":"2025-06-16T20:41:06.514Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Removed page=992bfe0b-38cb-43a7-b2c4-963d31d85b98 from context=f3d361d7-3b7a-49c1-a722-45350c812c16 page stack"}
-{"level":30,"time":"2025-06-16T20:41:06.713Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method closeContext"}
-{"level":30,"time":"2025-06-16T20:41:06.752Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:06.753Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-16T20:41:07.233Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method closeAllBrowsers"}
-{"level":30,"time":"2025-06-16T20:41:07.869Z","pid":6200,"hostname":"DESKTOP-995QNOJ","msg":"End of node method closeAllBrowsers"}
+{"level":30,"time":"2025-06-17T00:19:55.471Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-06-17T00:19:58.752Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Adding browser to stack: chromium, version: 136.0.7103.25"}
+{"level":30,"time":"2025-06-17T00:19:58.754Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-06-17T00:19:58.754Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-06-17T00:19:58.769Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-06-17T00:19:58.768Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-06-17T00:19:58.863Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Changed active context"}
+{"level":30,"time":"2025-06-17T00:20:00.471Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Video path: undefined"}
+{"level":30,"time":"2025-06-17T00:20:00.471Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Changed active page"}
+{"level":30,"time":"2025-06-17T00:20:01.818Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method newPage"}
+{"level":30,"time":"2025-06-17T00:20:02.861Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-06-17T00:20:02.862Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=input[placeholder$=mail] in page."}
+{"level":30,"time":"2025-06-17T00:20:03.040Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method fillText"}
+{"level":30,"time":"2025-06-17T00:20:03.051Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-06-17T00:20:03.051Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=input[placeholder=Senha] in page."}
+{"level":30,"time":"2025-06-17T00:20:03.159Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method fillText"}
+{"level":30,"time":"2025-06-17T00:20:03.170Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=button >> text=Entrar in page."}
+{"level":30,"time":"2025-06-17T00:20:03.170Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method click"}
+{"level":30,"time":"2025-06-17T00:20:03.391Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method click"}
+{"level":30,"time":"2025-06-17T00:20:03.639Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-06-17T00:20:03.640Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=header .right small in page."}
+{"level":30,"time":"2025-06-17T00:20:03.672Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-06-17T00:20:03.688Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getText"}
+{"level":30,"time":"2025-06-17T00:20:03.689Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=header .right small in page."}
+{"level":30,"time":"2025-06-17T00:20:03.761Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Retrieved text for element css=header .right small containing Olá, Amanda"}
+{"level":30,"time":"2025-06-17T00:20:03.761Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getText"}
+{"level":30,"time":"2025-06-17T00:20:03.822Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method click"}
+{"level":30,"time":"2025-06-17T00:20:03.822Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=.button-add in page."}
+{"level":30,"time":"2025-06-17T00:20:03.908Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method click"}
+{"level":30,"time":"2025-06-17T00:20:03.968Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-06-17T00:20:03.969Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=input[placeholder$=tarefa] in page."}
+{"level":30,"time":"2025-06-17T00:20:04.003Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method fillText"}
+{"level":30,"time":"2025-06-17T00:20:04.023Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method click"}
+{"level":30,"time":"2025-06-17T00:20:04.024Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=button >> text=Cadastrar in page."}
+{"level":30,"time":"2025-06-17T00:20:04.100Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method click"}
+{"level":30,"time":"2025-06-17T00:20:04.145Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-06-17T00:20:04.145Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=.notice p in page."}
+{"level":30,"time":"2025-06-17T00:20:04.210Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-06-17T00:20:04.222Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getText"}
+{"level":30,"time":"2025-06-17T00:20:04.222Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Strict mode is enabled, find Locator with css=.notice p in page."}
+{"level":30,"time":"2025-06-17T00:20:04.259Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Retrieved text for element css=.notice p containing Oops! Tarefa duplicada."}
+{"level":30,"time":"2025-06-17T00:20:04.259Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getText"}
+{"level":30,"time":"2025-06-17T00:20:04.322Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2025-06-17T00:20:04.322Z","pid":4080,"hostname":"DESKTOP-995QNOJ","Take screenshot with options: ":{"path":"C:\\03 - Projetos\\AWS_QE_MAR25\\Sprint7_IntroduçãoAutomaçãoWeb\\QAx\\projects\\mark85-robot-express\\logs\\browser\\screenshot\\robotframework-browser-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2025-06-17T00:20:04.743Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2025-06-17T00:20:04.762Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.768Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.774Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.778Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.783Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.786Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.793Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.796Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:04.801Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Changed active context"}
+{"level":30,"time":"2025-06-17T00:20:04.801Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Changing current active page: page=4e792e9e-9894-41d0-83aa-72a36118fe57"}
+{"level":30,"time":"2025-06-17T00:20:04.801Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Changed active page"}
+{"level":30,"time":"2025-06-17T00:20:04.811Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method closeContext"}
+{"level":30,"time":"2025-06-17T00:20:04.882Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Removed page=f0f28f5c-1710-41bb-913e-a2d1ad1cd52c from context=15ab43eb-a899-4579-a622-00c67f5a589c page stack"}
+{"level":30,"time":"2025-06-17T00:20:04.985Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method closeContext"}
+{"level":30,"time":"2025-06-17T00:20:05.119Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:05.120Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-17T00:20:05.692Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2025-06-17T00:20:07.010Z","pid":4080,"hostname":"DESKTOP-995QNOJ","msg":"End of node method closeAllBrowsers"}

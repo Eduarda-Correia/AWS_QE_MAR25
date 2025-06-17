@@ -7,9 +7,23 @@
         },
         "tasks": {
             "name": "Criar uma nova versão do Ipood",
-            "tasks": ["ios","music","ipod"]
+            "tags": ["ios","music","ipod"]
 
         }
+
+    },
+
+    "duplicate":{
+    "user":{
+        "name": "Amanda Waller",
+        "email": "waller@chequemate.com",
+        "password": "123456"
+    },
+    "tasks": {
+        "name": "Recrutar novos meta humanos",
+        "tags": []
+
+    }
 
     }
 }

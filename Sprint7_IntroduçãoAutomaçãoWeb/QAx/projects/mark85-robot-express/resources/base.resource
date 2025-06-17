@@ -15,6 +15,8 @@ Resource    pages/LoginPage.resource
 Resource    pages/TaskCreatePage.resource
 Resource    pages/TasksPage.resource
 
+Resource    services.resource
+
 *** Keywords ***
 Start Session
     New Browser    browser=chromium    headless=${False}
