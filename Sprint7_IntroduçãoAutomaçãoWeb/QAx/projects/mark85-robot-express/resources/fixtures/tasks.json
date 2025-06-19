@@ -14,16 +14,54 @@
     },
 
     "duplicate":{
-    "user":{
-        "name": "Amanda Waller",
-        "email": "waller@chequemate.com",
-        "password": "123456"
-    },
-    "tasks": {
-        "name": "Recrutar novos meta humanos",
-        "tags": []
+        "user":{
+            "name": "Amanda Waller",
+            "email": "waller@chequemate.com",
+            "password": "123456"
+        },
+        "tasks": {
+            "name": "Recrutar novos meta humanos",
+            "tags": []
 
-    }
+        }
+
+    },
+    "tags_limit":{
+        "user":{
+            "name": "Carlos Villagran",
+            "email": "kiko@televisa.com",
+            "password": "123456"
+        },
+        "tasks": {
+            "name": "Estudar python",
+            "tags": ["python","qax","programação", "pip"]
+
+        }
+    },
+    "done":{
+        "user":{
+            "name": "Tony Stark",
+            "email": "tony@stark.com",
+            "password": "123456"
+        },
+        "tasks": {
+            "name": "Criar uma nova IA",
+            "tags": ["jarvis","ultron","ark"]
+
+        }
+
+    },
+    "delete":{
+        "user":{
+            "name": "Hank Pym",
+            "email": "hank@pymtech.com",
+            "password": "123456"
+        },
+        "tasks": {
+            "name": "Criar a IA do Ultron",
+            "tags": ["ia","ultron"]
+
+        }
 
     }
 }

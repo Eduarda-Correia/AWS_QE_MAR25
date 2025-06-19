@@ -12,11 +12,9 @@ CT01 - Deve poder Cadastrar uma nova tarefas
 
     ${data}    Get fixture    tasks    create
 
-    Clean user from database        ${data}[user][email]
-    Insert user from database       ${data}[user]
+    Reset user from database        ${data}[user]
 
-    Submit login form               ${data}[user]
-    User should be logged in        ${data}[user][name]
+    Do login                        ${data}[user]
 
     Go to task form
     Submit task form                ${data}[tasks]
@@ -27,16 +25,27 @@ CT02 - Não deve cadastrar tarefa com nome duplicado
 
     ${data}    Get fixture    tasks    duplicate
 
-    Clean user from database        ${data}[user][email]
-    Insert user from database       ${data}[user]
+    Reset user from database       ${data}[user]
+    Create a new task from API     ${data}    
+    
+    Do login                       ${data}[user]
 
-    POST user Session    ${data}[user]
-    POST a nem Task    ${data}[tasks]
+    Go to task form
+    Submit task form               ${data}[tasks]
 
-    Submit login form               ${data}[user]
-    User should be logged in        ${data}[user][name]
+    Notice should be    Oops! Tarefa duplicada.
+
+CT03 - Não deve cadastrar uma nova tarefa quando atinge o limite de Tags
+    [Tags]    NEGATIVO    tags_max
+
+    ${data}    Get fixture    tasks    tags_limit
+
+    Reset user from database        ${data}[user]
+    Create a new task from API      ${data}    
+
+    Do login                        ${data}[user]
 
     Go to task form
     Submit task form                ${data}[tasks]
 
-    Notice should be    Oops! Tarefa duplicada.
+    Notice should be    Oops! Limite de tags atingido.

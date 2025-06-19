@@ -43,3 +43,21 @@ Get fixture
     ...    encoding= utf-8  
 
     [Return]    ${data}[${cenario}]
+
+Reset user from database
+    [Arguments]    ${user}    
+
+    Clean user from database        ${user}[email]
+    Insert user from database       ${user}
+
+Create a new task from API
+    [Arguments]    ${data}
+
+    POST user Session            ${data}[user]
+    POST a nem task              ${data}[tasks]
+
+Do login
+    [Arguments]    ${user}
+
+    Submit login form               ${user}
+    User should be logged in        ${user}[name]
